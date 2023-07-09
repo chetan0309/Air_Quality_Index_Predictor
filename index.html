@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/styles.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Bhopal's AIR QUALITY INDEX (PM 2.5 value)</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="T" placeholder="Average temperature" required="required" />
+        <input type="text" name="TM" placeholder="Maximum temperature" required="required" />
+		<input type="text" name="Tm" placeholder="Minimum temperature" required="required" />
+		<input type="text" name="SLP" placeholder="Atmospheric pressure at sea level" required="required" />
+		<input type="text" name="H" placeholder="Average relative humidity" required="required" />
+		<input type="text" name="W" placeholder="Average visibility" required="required" />
+		<input type="text" name="V" placeholder="Average wind speed" required="required" />
+		<input type="text" name="VM" placeholder="Maximum sustained wind speed" required="required" />
+		
+		
+		
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ PM_predicted }}
+
+ </div>
+
+
+</body>
+</html>
